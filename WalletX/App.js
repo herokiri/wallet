@@ -1,35 +1,27 @@
 (() => {
     
-    function getAmount(kind) {
-        const storedTransactions = localStorage.getItem('transactions');
-        const transactions = storedTransactions ? JSON.parse(storedTransactions) : [];
-
+    function getAmount(transactions, kind) {
         return transactions.reduce((sum, n) => sum + (n.kind === kind ? parseInt(n.amount) : 0), 0);
     }
 
     // обновляем общие данные доходов и расходов
-    function updateAmounts() {
+    function updateAmounts(transactions) {
         let incomeAmount = document.getElementById('income-amount');
         let expenseAmount = document.getElementById('expense-amount');
-        incomeAmount.innerText = getAmount('income') + " \u20bd";
-        expenseAmount.innerText = getAmount('expense') + " \u20bd";
+        incomeAmount.innerText = getAmount(transactions, 'income') + " \u20bd";
+        expenseAmount.innerText = getAmount(transactions, 'expense') + " \u20bd";
     }
-    updateAmounts();
+    // updateAmounts();
 
     // Функция для удаления операции по id
-    function deleteTransactionById(id) {
-        const storedTransactions = localStorage.getItem('transactions');
-        let transactions = storedTransactions ? JSON.parse(storedTransactions) : [];
+    function deleteTransactionById(transactions, id) {
         transactions = transactions.filter(transaction => transaction['id'] !== id);
         localStorage.setItem('transactions', JSON.stringify(transactions));
-        updateAmounts();
-        displayTransactions();
+        updateAmounts(transactions);
+        displayTransactions(transactions);
     }
 
-    function displayTransactions() {
-
-        const storedTransactions = localStorage.getItem('transactions');
-        const transactions = storedTransactions ? JSON.parse(storedTransactions) : [];
+    function displayTransactions(transactions) {
 
         // Получение элемента, в котором будет отображаться список операций
         const transactionList = document.getElementById('transactionList');
@@ -63,8 +55,20 @@
         });
     }
 
+    function startApp() {
+        
+        const storedTransactions = localStorage.getItem('transactions');
+        const transactions = storedTransactions ? JSON.parse(storedTransactions) : [];
+
+        
+
+        updateAmounts(transactions);
+        displayTransactions(transactions);
+    }
+
+    startApp();
       
-      displayTransactions();
+    //   displayTransactions();
 
 
 
@@ -101,8 +105,8 @@
         // Вывод сообщения об успешном добавлении
         alert('Транзакция успешно добавлена!');
 
-        updateAmounts();
-        displayTransactions();
+        updateAmounts(transactions);
+        displayTransactions(transactions);
 
     });
       
