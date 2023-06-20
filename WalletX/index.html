@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/main.css">
+    <script defer src="App.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">
+            WalletX
+        </h1>
+        <div class="row amounts">
+            <div id="income" class="amounts-item col-5">
+                <h2 class="amounts-item__title">
+                    Доходы
+                </h2>
+                <h2 id='income-amount' class="amounts-item__amount income">
+                    
+                </h2>
+            </div>
+            <div id="expense" class="amounts-item col-5">
+                <h2 class="amounts-item__title">
+                    Расходы
+                </h2>
+                <h2 id='expense-amount' class="amounts-item__amount expense">
+                    
+                </h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container transactions">
+        <div class="row">
+            <h1>Операции</h1>
+            <form id="transactionForm">
+                <div class="row transactionForm__radios">
+                    <label class="col-1">
+                        <input type="radio" name="kind" value="income" checked> Доход
+                    </label>
+                
+                    <label class="col-1">
+                        <input type="radio" name="kind" value="expense"> Расход
+                    </label>
+                </div>
+                <div class="row transactionForm__inputs" >   
+                    <label class="col-2">
+                        <input type="number" min="1" class="form-control" name="amount" required placeholder="Сумма...">
+                    </label>
+
+                    <label class="col-2 ">
+                        <input type="text" class="form-control" name="category" required placeholder="Категория...">
+                    </label>
+                    <button type="submit" class="col-2 btn btn-primary">Добавить транзакцию</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="row history">
+            <ul id="transactionList" class="history-group list-group ">
+
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: #364355;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+.amounts {
+    margin-top: 50px;
+}
+
+.income {
+    color: #16a05b;
+}
+
+.expense {
+    color: #f55858;
+}
+.amounts-item {
+    padding: 45px 70px 45px 55px;
+    border-radius: 24px;
+    box-shadow: 0 14px 28px rgba(68, 68, 68, 0.11), 0 10px 10px rgba(63, 63, 63, 0.22);
+}
+
+.amounts-item:not(:last-child) {
+    margin-right: 50px;
+}
+.amounts-item__title {
+    font-size: 24px;
+    font-weight: 600;
+}
+.amounts-item__amount {
+    font-weight: 600;
+    font-size: 58px;
+}
+
+.transactions {
+    margin-top: 45px;
+}
+
+.transactionForm__radios {
+    margin-top:30px;
+}
+
+.transactionForm__inputs {
+    margin-top: 25px;
+    padding-bottom: 20px;
+}
