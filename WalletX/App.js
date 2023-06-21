@@ -40,7 +40,7 @@
             deleteButton.classList.add("btn", "btn-danger", "delete-button-by-id");
 
             deleteButton.addEventListener('click', function() {
-                deleteTransactionById(transaction.id);
+                deleteTransactionById(transactions,transaction.id);
             });
           
             listItem.textContent = `Сумма: ${transaction.amount}, Категория: ${transaction.category}`;

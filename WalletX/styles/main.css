@@ -5,6 +5,21 @@ body {
     color: #364355;
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none; /* Убираем маркеры */
+   }
+
+.canvas-container {
+    margin-top: 100px;
+    display: flex;
+}
+.right-canvas {
+ margin-left: auto;
+}
 .title {
     margin-top: 20px;
 }
@@ -49,4 +64,16 @@ body {
 .transactionForm__inputs {
     margin-top: 25px;
     padding-bottom: 20px;
+}
+.ul-pages {
+    display: flex;
+}
+.ul-pages__item__link{
+    color: #364355;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.ul-pages__item__link:hover {
+    color: #16a05b;
 }
